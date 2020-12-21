@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    font-family: 'Roboto', sans-serif;
+}
+/* Header */
+header {
+    padding: 20px 50px;
+    background: rgb(1, 105, 202);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+header i {
+    font-size: 6rem;
+}
+
+#showData {
+    margin-top: 30px;
+}
+
+.card-content h6,
+.card-content h3 {
+    display: flex;
+    justify-content: space-between;
+}
+.card-content p {
+    text-transform: capitalize;
+}
+#showCity {
+    text-transform: uppercase;
+}
