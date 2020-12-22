@@ -1,4 +1,25 @@
 <?php
+/**
+ * Open weather API.
+ * 
+ * PHP version 7
+ * 
+ * @category   Web_App.
+ * @package    CEDCOSS
+ * @subpackage Test_Page
+ * @author     Shashikant Bharti <surya.indian321@gmail.com>
+ * @copyright  2020 CEDCOSS 
+ * @license    CEDCOSS 
+ * @version    GIT: <1.0>
+ * @link       http://127.0.0.1/training/openweather
+ */
+
+if (isset($_REQUEST['city'])) {
+    $city = ucfirst($_REQUEST['city']);
+} else {
+    header('location: 404.php');
+}
+
 date_default_timezone_set("Asia/Kolkata");
 echo date('G');
 

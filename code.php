@@ -13,8 +13,13 @@
  * @link      http://127.0.0.1/training/openweather
  */
 
-$city = ucfirst($_REQUEST['city']);
-// $city = "lucknow";
+if (isset($_REQUEST['city'])) {
+    $city = ucfirst($_REQUEST['city']);
+} else {
+    header('location: 404.php');
+}
+
+ // $city = "lucknow";
 $url = "api.openweathermap.org/data/2.5/weather?q=$city&APPID=52a4978e7f58a9b54193ada03d48bbe5";
 
 $ch = curl_init();
@@ -29,7 +34,6 @@ $result=curl_exec($ch);
 // Will dump a beauty json
 $lon = json_decode($result)->coord->lon;
 $lat = json_decode($result)->coord->lat;
-
 
 $url = "https://api.openweathermap.org/data/2.5/onecall?lat=$lat&lon=$lon&exclude=hourly,minutely&appid=52a4978e7f58a9b54193ada03d48bbe5&units=metric";
 
@@ -65,6 +69,7 @@ foreach ($data as $d) {
         "feels_like_eve"=>$d->feels_like->eve
     );
 }
+
 echo json_encode($myData);
 
 ?>

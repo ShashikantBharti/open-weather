@@ -16,6 +16,9 @@ $(document).ready(function(){
 });
  
 function showData(res) {
+    if(res == '') {
+        console.log(res);
+    }
     console.log(res);
     let html = ``;
     let today = new Date();
@@ -29,11 +32,11 @@ function showData(res) {
                 <span class="card-title"> ${item.day} </span>
                 <p><strong>${item.weather}</strong> <span class="right">(${item.weather_desc})<span></p>`;
 
-        if(hour > 3 && hour <= 9) {
+        if (hour > 3 && hour <= 9) {
             html +=`<h3><i class="fas fa-cloud-sun"></i> <span>Morning</span></h3>
                     <h1 class="center">${item.temp_morn} <sup>o</sup>C</h1>
                 `;
-        } else if(hour > 9 && hour <= 15) {
+        } else if (hour > 9 && hour <= 15) {
             html +=`<h3><i class="fas fa-cloud-sun"></i> <span>Day</span></h3>
                     <h1 class="center">${item.temp_day} <sup>o</sup>C</h1>
                 `;
@@ -47,7 +50,7 @@ function showData(res) {
                 `;
         }
 
-        html += `<h5>Events</h5>
+        html +=`<h5>Events</h5>
                 <h6>Sunrise: <span>${item.sunrise} AM</span></h6>
                 <h6>Sunset: <span>${item.sunset} PM</span></h6>
                 <h5>Temprature <sup>o</sup>C</h5>
